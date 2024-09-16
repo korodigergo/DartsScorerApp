@@ -90,7 +90,7 @@ const Game = () => {
       }
     } else {
       let playersWithResetedPoints = playersCopy.map((player) => {
-        return { ...player, points: 501 };
+        return { ...player, points: points };
       });
       setStartingPlayerIndex(startingPlayerIndex + 1)
       console.log(startingPlayerIndex)
@@ -208,38 +208,45 @@ const Game = () => {
         </div>
 
         <div className="text-3xl max-sm:text-xl mt-2">
-          <table>
-            <tbody className="border border-black bg-gray-400">
-              {[1, 2, 3].map((row, i) => (
-                <tr key={i} className="border border-black">
-                  {[row, row + 3, row + 6].map((digit) => (
-                    <td
-                      key={digit}
-                      className="border border-black text-center align-middle p-7 cursor-pointer hover:bg-gray-500 ease-in-out duration-200"
-                      onClick={() => handleDigitClick(digit)}
-                    >
-                      {digit}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-              <tr className="border border-black">
-                <td
-                  className="border border-black w-32 h-4 max-sm:w-20 text-center align-middle p-7 cursor-pointer hover:bg-gray-500 ease-in-out duration-200"
-                  onClick={handleDeleteClick}
-                >
-                  <FontAwesomeIcon icon={faDeleteLeft} />
-                </td>
-                <td
-                  className="border border-black w-32 max-sm:w-20 text-center align-middle p-7 cursor-pointer hover:bg-gray-500 ease-in-out duration-200"
-                  onClick={() => handleDigitClick(0)}
-                >
-                  0
-                </td>
-                <td className="border border-black w-32 max-sm:w-20 text-center align-middle p-7 cursor-pointer hover:bg-gray-500 ease-in-out duration-200"></td>
-              </tr>
-            </tbody>
-          </table>
+        <table>
+  <tbody className="border border-black bg-gray-400">
+    {/* First three rows */}
+    {[0, 1, 2].map((row, i) => (
+      <tr key={i} className="border border-black">
+        {[1, 2, 3].map((col) => {
+          const digit = row * 3 + col;
+          return (
+            <td
+              key={digit}
+              className="border border-black text-center align-middle p-7 cursor-pointer hover:bg-gray-500 ease-in-out duration-200"
+              onClick={() => handleDigitClick(digit)}
+            >
+              {digit}
+            </td>
+          );
+        })}
+      </tr>
+    ))}
+
+    {/* Last row with delete and 0 */}
+    <tr className="border border-black">
+      <td
+        className="border border-black w-32 h-4 max-sm:w-20 text-center align-middle p-7 cursor-pointer hover:bg-gray-500 ease-in-out duration-200"
+        onClick={handleDeleteClick}
+      >
+        <FontAwesomeIcon icon={faDeleteLeft} />
+      </td>
+      <td
+        className="border border-black w-32 max-sm:w-20 text-center align-middle p-7 cursor-pointer hover:bg-gray-500 ease-in-out duration-200"
+        onClick={() => handleDigitClick(0)}
+      >
+        0
+      </td>
+      <td className="border border-black w-32 max-sm:w-20 text-center align-middle p-7 cursor-pointer hover:bg-gray-500 ease-in-out duration-200"></td>
+    </tr>
+  </tbody>
+</table>
+
         </div>
       </section>
     </main>

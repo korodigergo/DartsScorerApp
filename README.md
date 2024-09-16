@@ -24,6 +24,8 @@
   </ol>
 </details>
 
+![alt text](./images/dartsapp-home.png)
+![alt text](./images/dartsapp-game.png)
 
 
 <!-- ABOUT THE PROJECT -->
