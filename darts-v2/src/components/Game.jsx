@@ -33,6 +33,7 @@ const Game = () => {
       sets: set,
       points: points,
       out: "",
+      dartsCount: 0,
     }))
   );
 
@@ -105,7 +106,8 @@ const Game = () => {
     let currentPlayer = playersCopy[currentPlayerIndex];
     let numberToSubtract = parseInt(inputValue, 10);
 
-    if (!isNaN(numberToSubtract)) {
+    if (!isNaN(numberToSubtract) && numberToSubtract < 180) {
+      currentPlayer.dartsCount+=3;
       currentPlayer.points -= numberToSubtract;
       let outPair = getTheScore_sPossibleOutsArray(currentPlayer.points);
       currentPlayer.out = outPair;
@@ -121,6 +123,9 @@ const Game = () => {
       }
 
       setInputValue("");
+    }else {
+      alert('Invalid score')
+      setInputValue("")
     }
   }
 
@@ -159,8 +164,15 @@ const Game = () => {
                 {player.playerName}
                 <h1 className="text-2xl">{player.points}</h1>
                 <div className="text-xxs sm:text-xs">
-                  <h1>Leg: {player.legWins}</h1>
-                  <h1>Set: {player.setWins}</h1>
+                  <div className="flex flex-row gap-3">
+                    <h1>Leg: {player.legWins}</h1>
+                    <h1>🎯: {player.dartsCount}</h1>
+                  </div>
+                  <div>
+                    <h1>Set: {player.setWins}</h1>
+                  </div>
+                  
+                  
                 </div>
 
                 {possibleOutKeys.includes(player.points) ? (

@@ -46,7 +46,7 @@ const PlayersSettings = ({ currentPlayers, setCurrentPlayers }) => {
         </span>
         <h2 className="bold">Players Settings</h2>
         <button
-          className="border rounded-md w-40 text-white bg-orange-600 hover:text-slate-200 ml-10"
+          className="border rounded-md w-40 max-sm:w-28 max-sm:h-7 max-sm:text-xs text-white bg-orange-600 hover:text-slate-200 ml-10 max-sm:ml-0"
           onClick={() => {
             navigate("/leaderboard");
           }}
