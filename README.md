@@ -55,7 +55,7 @@
 ### Installation with Docker
 1. Clone the repository
    ```sh
-   git clone https://github.com/korodigergo/DartsScorerApp
+   git clone git@github.com:korodigergo/DartsScorerApp.git
    ```
 2. Setup:
    Navigate to the backend folder in your terminal and give your environmental variables(DB_USERNAME, DB_PASSWORD, DB_URL)
