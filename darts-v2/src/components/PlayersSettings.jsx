@@ -3,7 +3,7 @@ import { faGear, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const PlayersSettings = ({ currentPlayers, setCurrentPlayers }) => {
+const PlayersSettings = ({ currentPlayers, onCurrentPlayerChange }) => {
   const navigate = useNavigate();
   const [newPlayerName, setNewPlayerName] = useState("");
   const [players, setPlayers] = useState([]);
@@ -44,9 +44,9 @@ const PlayersSettings = ({ currentPlayers, setCurrentPlayers }) => {
         <span>
           <FontAwesomeIcon icon={faGear} />
         </span>
-        <h2 className="bold">Players Settings</h2>
+        <h2 className="bold text-nowrap">Players Settings</h2>
         <button
-          className="border rounded-md w-40 max-sm:w-28 max-sm:h-7 max-sm:text-xs text-white bg-orange-600 hover:text-slate-200 ml-10 max-sm:ml-0"
+          className="border rounded-md w-40 max-sm:w-20 max-sm:h-7 max-sm:text-xxs text-white bg-orange-600 hover:opacity-90 ml-10 max-sm:ml-1"
           onClick={() => {
             navigate("/leaderboard");
           }}
@@ -90,16 +90,16 @@ const PlayersSettings = ({ currentPlayers, setCurrentPlayers }) => {
               return (
                 <div
                   key={player.playerName}
-                  className={`cursor-pointer border-1 border-black rounded-lg w-fit p-2 text-white ${
+                  className={`cursor-pointer hover:bg-blue-300 hover:text-slate-600 border-1 border-black rounded-lg w-fit p-2 text-white ${
                     isSelected ? "bg-blue-500" : "bg-slate-600"
                   }`}
                   onClick={() => {
                     if (isSelected) {
-                      setCurrentPlayers(
+                      onCurrentPlayerChange(
                         currentPlayers.filter((p) => p !== player)
                       );
                     } else {
-                      setCurrentPlayers([...currentPlayers, player]);
+                      onCurrentPlayerChange([...currentPlayers, player]);
                     }
                   }}
                 >

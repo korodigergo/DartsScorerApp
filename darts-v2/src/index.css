@@ -2,11 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities{
-  .common-section{
-    @apply relative flex flex-col shadow-[0_15px_30px_8px_rgba(0,0,0,0.3)] border rounded-xl bg-white max-sm:h-60 max-md:h-64 h-80 max-sm:w-64 w-96
+@layer utilities {
+  .common-section {
+    @apply relative flex flex-col shadow-[0_15px_30px_8px_rgba(0,0,0,0.3)] border rounded-xl bg-white max-sm:h-60 max-md:h-64 h-80 max-sm:w-64 w-96;
   }
-  .game-section{
-    @apply relative flex flex-col shadow-[0_15px_30px_8px_rgba(0,0,0,0.3)] border rounded-xl bg-gray-500  h-1/2 max-sm:w-72 w-1/2 p-5
+  .game-section {
+    @apply relative flex flex-col shadow-[0_15px_30px_8px_rgba(0,0,0,0.3)] border rounded-xl bg-gray-500  h-1/2 max-sm:w-72 w-1/2 p-5;
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }

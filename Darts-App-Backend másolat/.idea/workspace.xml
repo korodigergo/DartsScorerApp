@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8a2fab34-d94e-4c2e-a8df-408e3980ef26" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2khVRGMuzbdpPPCnLk1CjErMJCv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.PlayerControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlayerControllerTest.testGetAllPlayersSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DartsAppBackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/korodigergo/Documents/CODECOOL/codecool/DartsScorerApp/Darts-App-Backend másolat&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.codecool.dartsappbackend.controller" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.DartsAppBackendApplication">
+    <configuration name="PlayerControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Darts-App-Backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.codecool.dartsappbackend.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.codecool.dartsappbackend.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.codecool.dartsappbackend.controller.PlayerControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayerControllerTest.testGetAllPlayersSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Darts-App-Backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.codecool.dartsappbackend.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.codecool.dartsappbackend.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.codecool.dartsappbackend.controller.PlayerControllerTest" />
+      <option name="METHOD_NAME" value="testGetAllPlayersSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DartsAppBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="SPRING_DATASOURCE_PASSWORD" value="Daimond01" />
+        <env name="SPRING_DATASOURCE_URL" value="jdbc:postgresql://localhost:5432/darts" />
+        <env name="SPRING_DATASOURCE_USERNAME" value="postgres" />
+      </envs>
+      <module name="Darts-App-Backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.codecool.dartsappbackend.DartsAppBackendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.PlayerControllerTest" />
+      <item itemvalue="JUnit.PlayerControllerTest.testGetAllPlayersSuccess" />
+      <item itemvalue="Spring Boot.DartsAppBackendApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.PlayerControllerTest" />
+        <item itemvalue="JUnit.PlayerControllerTest.testGetAllPlayersSuccess" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8a2fab34-d94e-4c2e-a8df-408e3980ef26" name="Changes" comment="" />
+      <created>1723735788079</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723735788079</updated>
+      <workItem from="1723735789135" duration="5599000" />
+      <workItem from="1723814244508" duration="18412000" />
+      <workItem from="1723885414046" duration="9364000" />
+      <workItem from="1723908942214" duration="1105000" />
+      <workItem from="1723930413327" duration="569000" />
+      <workItem from="1723976289594" duration="836000" />
+      <workItem from="1724235226550" duration="1565000" />
+      <workItem from="1724397254507" duration="1898000" />
+      <workItem from="1724584818913" duration="1012000" />
+      <workItem from="1724664827605" duration="621000" />
+      <workItem from="1724669444898" duration="1696000" />
+      <workItem from="1724868452495" duration="2071000" />
+      <workItem from="1725032816829" duration="8000" />
+      <workItem from="1726220620598" duration="1403000" />
+      <workItem from="1726227253637" duration="825000" />
+      <workItem from="1726238488980" duration="631000" />
+      <workItem from="1726330462197" duration="1236000" />
+      <workItem from="1726476124641" duration="2961000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

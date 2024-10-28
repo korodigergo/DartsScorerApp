@@ -1,16 +1,16 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { possibleOuts } from "../constants/index.js";
 import WinPage from "./WinPage.jsx";
+import PlayerGameDetails from "./PlayerGameDetails.jsx";
+import PinPad from "./PinPad.jsx";
 
 const Game = () => {
+ 
   
   let possibleOutKeys = Object.keys(possibleOuts).map((e) => parseInt(e));
 
-  
   const [startingPlayerIndex, setStartingPlayerIndex] = useState(0);
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
   const [inputValue, setInputValue] = useState("");
@@ -34,6 +34,9 @@ const Game = () => {
       points: points,
       out: "",
       dartsCount: 0,
+      pointsScoredInGame: 0,
+      rounds: 0,
+      average: 0,
     }))
   );
 
@@ -82,7 +85,7 @@ const Game = () => {
         let playersWithResetedPoints = playersCopy.map((player) => {
           return { ...player, points: 501, legs: leg };
         });
-        setStartingPlayerIndex(startingPlayerIndex + 1)
+        setStartingPlayerIndex(startingPlayerIndex + 1);
         setPlayers(playersWithResetedPoints);
         setCurrentPlayerIndex(
           (startingPlayerIndex + 1) % currentPlayers.length
@@ -92,12 +95,10 @@ const Game = () => {
       let playersWithResetedPoints = playersCopy.map((player) => {
         return { ...player, points: points };
       });
-      setStartingPlayerIndex(startingPlayerIndex + 1)
-      console.log(startingPlayerIndex)
+      setStartingPlayerIndex(startingPlayerIndex + 1);
+      console.log(startingPlayerIndex);
       setPlayers(playersWithResetedPoints);
-      setCurrentPlayerIndex(
-        (startingPlayerIndex + 1) % currentPlayers.length
-      );
+      setCurrentPlayerIndex((startingPlayerIndex + 1) % currentPlayers.length);
     }
   }
 
@@ -107,7 +108,11 @@ const Game = () => {
     let numberToSubtract = parseInt(inputValue, 10);
 
     if (!isNaN(numberToSubtract) && numberToSubtract < 180) {
-      currentPlayer.dartsCount+=3;
+      currentPlayer.pointsScoredInGame += numberToSubtract;
+      currentPlayer.rounds++;
+      currentPlayer.average =
+        currentPlayer.pointsScoredInGame / currentPlayer.rounds;
+      currentPlayer.dartsCount += 3;
       currentPlayer.points -= numberToSubtract;
       let outPair = getTheScore_sPossibleOutsArray(currentPlayer.points);
       currentPlayer.out = outPair;
@@ -120,29 +125,18 @@ const Game = () => {
         setCurrentPlayerIndex(
           (prevIndex) => (prevIndex + 1) % currentPlayers.length
         );
-      }
 
+
+      }
       setInputValue("");
-    }else {
-      alert('Invalid score')
-      setInputValue("")
+    } else {
+      alert("Invalid score");
+      setInputValue("");
     }
   }
 
-  // Function to handle digit clicks
-  const handleDigitClick = (digit) => {
-    if (inputValue.length < 3) {
-      setInputValue((prevValue) => prevValue + digit);
-    }
-  };
-
-  // Function to handle delete action
-  const handleDeleteClick = () => {
-    setInputValue((prevValue) => prevValue.slice(0, -1));
-  };
-
   return winSection ? (
-    <WinPage players={players} currentPlayerIndex={currentPlayerIndex}/>
+    <WinPage players={players} currentPlayerIndex={currentPlayerIndex} />
   ) : (
     <main className="flex flex-col justify-center items-center mt-5">
       <section id="game" className="flex flex-col items-center game-section">
@@ -152,37 +146,53 @@ const Game = () => {
           <p>Sets: {set}</p>
         </div>
 
-        <div className="flex flex-row gap-10 justify-between flex-wrap text-white">
+        <div
+          className={`flex flex-col w-full md:w-2/3 h-32 mb-3 justify-start items-center gap-2 border-2 border-black p-1 text-white`}
+        >
+          <div className="flex flex-row gap-8 w-full">
+
+            <div className="text-xs flex w-1/2">
+              <div className="flex gap-2 px-2 justify-between">
+                <div className="flex flex-col space-y-0.5">
+                  <h1>Average:</h1>
+                  <h1>Leg:</h1>
+                  <h1>Set:</h1>
+                  <h1>🎯:</h1>
+                </div>
+                <div className="flex flex-col items-end space-y-0.5">
+                  <h1>{players[currentPlayerIndex].average.toFixed(2)}</h1>
+                  <h1>{players[currentPlayerIndex].legWins}</h1>
+                  <h1>{players[currentPlayerIndex].setWins}</h1>
+                  <h1>{players[currentPlayerIndex].dartsCount}</h1>
+                </div>
+              </div>
+            </div>
+
+            <div className="w-1/2 flex flex-col items-center">
+              <h1 className="text-3xl">{players[currentPlayerIndex].playerName}</h1>
+              <h1 className="text-2xl">{players[currentPlayerIndex].points}</h1>
+            </div>
+
+          </div>
+
+          {possibleOutKeys.includes(players[currentPlayerIndex].points) ? (
+            <p className=" font-normal  text-s  p-2 whitespace-nowrap bg-gray-600">
+              {players[currentPlayerIndex].out}
+            </p>
+          ) : (
+            <></>
+          )}
+        </div>
+
+        <div className="flex flex-col w-full min-h-10 max-h-44 overflow-scroll no-scrollbar justify-between gap-1 border-1 border-black text-white border-b-2">
           {players &&
             players.map((player, index) => (
-              <div
-                key={player.playerName}
-                className={`flex flex-col w-40 max-md:w-24 h-32 justify-start items-center border rounded-lg p-1
-              ${currentPlayerIndex == index ? "bg-black" : ""}
-            `}
-              >
-                {player.playerName}
-                <h1 className="text-2xl">{player.points}</h1>
-                <div className="text-xxs sm:text-xs">
-                  <div className="flex flex-row gap-3">
-                    <h1>Leg: {player.legWins}</h1>
-                    <h1>🎯: {player.dartsCount}</h1>
-                  </div>
-                  <div>
-                    <h1>Set: {player.setWins}</h1>
-                  </div>
-                  
-                  
-                </div>
-
-                {possibleOutKeys.includes(player.points) ? (
-                  <p className=" font-normal max-sm:text-xxs max-md:text-xs border-1 p-1 whitespace-nowrap bg-gray-600">
-                    {player.out}
-                  </p>
-                ) : (
-                  <></>
-                )}
-              </div>
+              <PlayerGameDetails
+                key={player.id}
+                player={player}
+                possibleOutKeys={possibleOutKeys}
+                highlighted={currentPlayerIndex == index}
+              />
             ))}
         </div>
 
@@ -208,45 +218,7 @@ const Game = () => {
         </div>
 
         <div className="text-3xl max-sm:text-xl mt-2">
-        <table>
-  <tbody className="border border-black bg-gray-400">
-    {/* First three rows */}
-    {[0, 1, 2].map((row, i) => (
-      <tr key={i} className="border border-black">
-        {[1, 2, 3].map((col) => {
-          const digit = row * 3 + col;
-          return (
-            <td
-              key={digit}
-              className="border border-black text-center align-middle p-7 cursor-pointer hover:bg-gray-500 ease-in-out duration-200"
-              onClick={() => handleDigitClick(digit)}
-            >
-              {digit}
-            </td>
-          );
-        })}
-      </tr>
-    ))}
-
-    {/* Last row with delete and 0 */}
-    <tr className="border border-black">
-      <td
-        className="border border-black w-32 h-4 max-sm:w-20 text-center align-middle p-7 cursor-pointer hover:bg-gray-500 ease-in-out duration-200"
-        onClick={handleDeleteClick}
-      >
-        <FontAwesomeIcon icon={faDeleteLeft} />
-      </td>
-      <td
-        className="border border-black w-32 max-sm:w-20 text-center align-middle p-7 cursor-pointer hover:bg-gray-500 ease-in-out duration-200"
-        onClick={() => handleDigitClick(0)}
-      >
-        0
-      </td>
-      <td className="border border-black w-32 max-sm:w-20 text-center align-middle p-7 cursor-pointer hover:bg-gray-500 ease-in-out duration-200"></td>
-    </tr>
-  </tbody>
-</table>
-
+          <PinPad value={inputValue} onValueChange={setInputValue} />
         </div>
       </section>
     </main>

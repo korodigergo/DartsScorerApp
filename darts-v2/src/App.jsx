@@ -17,7 +17,7 @@ function App() {
       <div className=' flex max-md:flex-col flex-row gap-4'>
         <PlayersSettings
           currentPlayers={currentPlayers}
-          setCurrentPlayers={setCurrentPlayers}
+          onCurrentPlayerChange={setCurrentPlayers}
         />
         <GameSettings
           leg={leg} 
